@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(VaccinationSeeder::class);
+        $this->call(AuthorSeeder::class);
+        $this->call(PostSeeder::class);
     }
 }

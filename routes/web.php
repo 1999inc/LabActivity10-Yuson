@@ -1,19 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
 
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-    Route::post('/login', [AuthController::class, 'login'])->name('login.store');
-});
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/schedule', [DashboardController::class, 'schedule'])->name('schedule');
-});
-
-Route::redirect('/', '/dashboard');
+Route::redirect('/', '/posts');
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');

@@ -1,35 +1,30 @@
-# Bakuna Tracker
+# Barangay Bulletin – Purok Yuson
 
-A Laravel Blade dashboard for viewing barangay vaccination schedules.
+A Laravel Blade application for browsing Barangay Matina Crossing announcements and updates.
 
-## Requirements
+## Assignment details
 
-- PHP and Composer
-- Node.js and npm
-- SQLite, or another database configured in `.env`
+- Posts per page: 5, as requested for this project (Yuson has five letters; the assignment's default minimum is six).
+- Custom category: `Off-Topic`.
+- Pinned Kagawad post date: May 23, 2026.
 
-## Setup
+## Setup and run
 
 ```sh
 composer install
+cp .env.example .env
+php artisan key:generate
 npm install
 php artisan migrate:fresh --seed
-```
-
-`migrate:fresh` drops existing database tables before rebuilding them. Use it only when resetting the local project database.
-
-In separate terminals, start Laravel and Vite:
-
-```sh
-php artisan serve
 npm run dev
 ```
 
-Open the URL printed by `php artisan serve`.
+`migrate:fresh` drops existing database tables before rebuilding them. Use it only when resetting the local project database. Configure `.env` to use SQLite before migrating.
 
-## Seeded sign-in
+In a second terminal, start Laravel:
 
-- Email: `nurse.yuson@bakuna.test`
-- Password: `bakuna2026`
+```sh
+php artisan serve
+```
 
-The database seeder creates this health-worker account and sample vaccination schedules.
+Open the URL printed by `php artisan serve` to browse, search, and filter published posts.

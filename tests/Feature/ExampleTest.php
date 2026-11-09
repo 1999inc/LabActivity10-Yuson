@@ -6,10 +6,10 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    public function test_the_homepage_redirects_to_the_dashboard(): void
+    public function test_the_homepage_redirects_to_the_posts_page(): void
     {
         $response = $this->get('/');
 
-        $response->assertRedirect('/dashboard');
+        $response->assertRedirect('/posts');
     }
 }
